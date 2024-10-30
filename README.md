@@ -8,14 +8,14 @@ This problem introduces a fundamental trade-off between exploration and exploita
 
 ## Mathematical Model and Objective Function
 
-In the mathematical formulation of the multi-armed bandit problem, each arm's reward structure is represented as a probability distribution, showing the expected reward for each option. The objective is to find an optimal policy \( \pi \) that maximizes the expected sum of rewards over time. Formally, we aim to maximize the following function:
+In the mathematical formulation of the multi-armed bandit problem, each arm's reward structure is represented as a probability distribution, showing the expected reward for each option. The objective is to find an optimal policy $\pi$ that maximizes the expected sum of rewards over time. Formally, we aim to maximize the following function:
 
-\[
+$$
 \max_{\pi} \mathbb{E} \left[ \sum_{t=1}^{N} r_t \right]
-\]
+$$
 
 Here:
-- \( r_t \) represents the reward at time \( t \), which is the outcome of choosing one of the arms at that time.
-- The policy \( \pi \) is the strategy for deciding which arm to pull at each time step, balancing exploration and exploitation.
+- $r_t$ represents the reward at time $t$, which is the outcome of choosing one of the arms at that time.
+- The policy $\pi$ is the strategy for deciding which arm to pull at each time step, balancing exploration and exploitation.
 
 The goal of an effective policy is to minimize regret, which is the opportunity cost of not knowing each arm’s potential rewards immediately. Regret measures how much we lose by learning about each arm gradually instead of knowing its payout rate from the start.
