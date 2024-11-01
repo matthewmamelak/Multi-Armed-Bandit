@@ -34,6 +34,20 @@ The EXP3 (Exponential-weight algorithm for Exploration and Exploitation) algorit
 
 In practical applications, the choice of algorithm depends largely on the stability of the environment, computational resources, and the need for adaptability. For stable environments, UCB offers a robust solution due to its confidence-based selection that adjusts naturally as more data becomes available. In contrast, Thompson Sampling shines in dynamic or uncertain contexts due to its Bayesian sampling, which adapts to changing conditions. Epsilon-Greedy remains a popular choice for its simplicity, while Softmax and EXP3 cater to specific needs for probabilistic selection and adversarial environments, respectively. Each algorithm addresses a different facet of the exploration-exploitation trade-off, and selecting the right one is crucial for optimizing outcomes in multi-armed bandit problems.
 
+## A/B Testing
+
+A/B testing is a traditional experimentation method that compares two or more options by randomly assigning users or participants to each group (e.g., Group A and Group B) and measuring the impact of each option on a specified outcome. In this approach, each option (or “treatment”) is tested independently and equally, which allows for a straightforward comparison of their effectiveness. However, A/B testing has limitations, particularly in scenarios where rapid adaptability is needed. Since A/B testing maintains a fixed allocation of users to each group until the end of the experiment, it can be inefficient in scenarios where one option is clearly outperforming the others.
+
+In contrast, multi-armed bandit algorithms are adaptive, reallocating resources towards the better-performing options over time while still exploring others. This approach reduces the opportunity cost associated with traditional A/B testing, as fewer resources are spent on suboptimal options. By continuously learning from user interactions, multi-armed bandits can lead to faster convergence towards the optimal choice, particularly in settings where outcomes can be measured in real-time.
+
+# Example: Online Advertising
+
+Consider an online advertising campaign where a company is testing two different ad creatives, Ad A and Ad B, to see which one generates more clicks. In a traditional A/B test, the company might assign 50% of its audience to Ad A and the other 50% to Ad B, running the test over a fixed period (e.g., two weeks). At the end of the period, they would analyze the click-through rates to determine the better-performing ad. If Ad B significantly outperformed Ad A, the company would then decide to roll out Ad B to the full audience after the test has concluded.
+
+With a multi-armed bandit approach, the campaign would start by initially assigning traffic equally between Ad A and Ad B. As data is collected, the algorithm dynamically shifts more traffic toward the better-performing ad while still allocating some traffic to the other ad to gather information (exploration). This allows the company to quickly focus resources on the higher-performing ad while continuing to test the other option for any potential changes in performance.
+
+For example, if Ad B immediately shows a higher click-through rate, the multi-armed bandit algorithm would gradually allocate a higher percentage of traffic to Ad B, say 70%, while still directing 30% to Ad A to ensure that no new insights are missed. This adaptive approach maximizes clicks over time, often leading to significantly higher overall engagement compared to a static A/B test. Additionally, the company gains more granular insights throughout the testing period, potentially allowing it to adjust the campaign sooner than with a standard A/B test.
+
 
 
 ## Real World Applications
